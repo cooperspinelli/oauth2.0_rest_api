@@ -1,11 +1,10 @@
 import express, { Request, Response } from 'express';
 import bodyParser from 'body-parser';
 import { SignJWT, jwtVerify } from 'jose';
-import { CLIENT_ID, REDIRECT_URI, JWT_SECRET } from './config';
+import { CLIENT_ID, REDIRECT_URI, JWT_SECRET, AUTH_CODE_EXPIRY, ACCESS_TOKEN_EXPIRY_IN_SECONDS } from './config';
 import { generateAccessToken, generateRefreshToken } from './tokens'
 
 const secretKey = new TextEncoder().encode(JWT_SECRET);
-const AUTH_CODE_EXPIRY = '5m';
 
 // Create and export the Express app.
 export const app = express();
@@ -75,7 +74,7 @@ app.get('/api/oauth/authorize', async (req: Request, res: Response) => {
  * {
  *   "access_token": <JWT_TOKEN>,
  *   "token_type": "bearer",
- *   "expires_in": 3600,
+ *   "expires_in": ACCESS_TOKEN_EXPIRY_IN_SECONDS,
  *   "refresh_token": <SOME_REFRESH_TOKEN>
  * }
  */
@@ -101,7 +100,7 @@ app.post('/api/oauth/token', async (req: Request, res: Response) => {
       res.status(200).json({
         access_token: accessToken,
         token_type: 'bearer',
-        expires_in: 3600,
+        expires_in: ACCESS_TOKEN_EXPIRY_IN_SECONDS,
         refresh_token: newRefreshToken
       });
 
@@ -128,7 +127,7 @@ app.post('/api/oauth/token', async (req: Request, res: Response) => {
       return res.status(200).json({
         access_token: accessToken,
         token_type: 'bearer',
-        expires_in: 3600,
+        expires_in: ACCESS_TOKEN_EXPIRY_IN_SECONDS,
         refresh_token: newRefreshToken
       });
 

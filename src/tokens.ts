@@ -1,12 +1,8 @@
 import { SignJWT } from 'jose';
-import { JWT_SECRET } from './config';
+import { JWT_SECRET, ACCESS_TOKEN_EXPIRY, REFRESH_TOKEN_EXPIRY } from './config';
 
 // Convert secret key to Uint8Array
 const secretKey = new TextEncoder().encode(JWT_SECRET);
-
-// Token Expiration Durations
-const ACCESS_TOKEN_EXPIRY = '1h';
-const REFRESH_TOKEN_EXPIRY = '30d';
 
 /**
  * Generates a stateless JWT access token for the given client ID.

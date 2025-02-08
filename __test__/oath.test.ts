@@ -1,7 +1,6 @@
 import request from 'supertest';
 import { app } from '../src/app';
-import { SignJWT } from 'jose';
-import { CLIENT_ID, REDIRECT_URI, JWT_SECRET } from '../src/config';
+import { ACCESS_TOKEN_EXPIRY_IN_SECONDS } from '../src/config';
 
 describe('OAuth 2.0 Flow', () => {
   describe('GET /api/oauth/authorize', () => {
@@ -116,7 +115,7 @@ describe('OAuth 2.0 Flow', () => {
       expect(tokenRes.status).toBe(200);
       expect(tokenRes.body).toMatchObject({
         token_type: 'bearer',
-        expires_in: 3600
+        expires_in: ACCESS_TOKEN_EXPIRY_IN_SECONDS
       });
       expect(tokenRes.body.access_token).toBeDefined();
     });
@@ -193,7 +192,7 @@ describe('OAuth 2.0 Refresh Token Flow', () => {
     expect(tokenRes.status).toBe(200);
     expect(tokenRes.body).toMatchObject({
       token_type: 'bearer',
-      expires_in: 3600
+      expires_in: ACCESS_TOKEN_EXPIRY_IN_SECONDS
     });
 
     expect(tokenRes.body.access_token).toBeDefined();
@@ -217,7 +216,7 @@ describe('OAuth 2.0 Refresh Token Flow', () => {
     expect(refreshRes.status).toBe(200);
     expect(refreshRes.body).toMatchObject({
       token_type: 'bearer',
-      expires_in: 3600
+      expires_in: ACCESS_TOKEN_EXPIRY_IN_SECONDS
     });
     expect(refreshRes.body.access_token).toBeDefined();
     expect(refreshRes.body.refresh_token).toBeDefined();
