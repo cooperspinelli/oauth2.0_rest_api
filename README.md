@@ -40,7 +40,7 @@ repo-root/
 ### 1️⃣ Clone the Repository
 ```sh
 git clone https://github.com/cooperspinelli/oauth2.0_rest_api.git
-cd oauth2_rest_api
+cd oauth2.0_rest_api
 ```
 
 ### 2️⃣ Install Dependencies
