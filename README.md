@@ -112,6 +112,8 @@ Content-Type: application/json
 
 {
   "grant_type": "refresh_token",
+  "client_id": "upfirst",
+  "redirect_uri": "http://localhost:8081/process"
   "refresh_token": "SOME_REFRESH_TOKEN"
 }
 ```
