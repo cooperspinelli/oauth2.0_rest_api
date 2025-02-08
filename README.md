@@ -76,9 +76,7 @@ GET /api/oauth/authorize?response_type=code&client_id=upfirst&redirect_uri=http:
 ```
 **Response:**
 Redirects to:
-```http
-http://localhost:8081/process?code=some_code&state=some_state
-```
+
 
 ### 2️⃣ **Token Exchange (Authorization Code Grant)**  
 **Request:**
