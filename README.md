@@ -72,7 +72,7 @@ The server should start at `http://localhost:8080`.
 ### 1️⃣ **OAuth Authorization Endpoint**  
 **Request:**
 ```http
-GET /api/oauth/authorize?response_type=code&client_id=upfirst&redirect_uri=http://localhost:8081/process&state=some_state
+GET /api/oauth/authorize?response_type=code&client_id=upfirst&redirect_uri=http://localhost:8081/process&state=random_state
 ```
 **Response:**
 Redirects to:
