@@ -77,7 +77,7 @@ GET /api/oauth/authorize?response_type=code&client_id=upfirst&redirect_uri=http:
 **Response:**
 Redirects to:
 
-```http
+```plaintext
 http://localhost:8081/process?code=abcd1234&state=random_state
 ```
 
