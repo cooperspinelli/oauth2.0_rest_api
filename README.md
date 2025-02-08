@@ -111,7 +111,7 @@ Content-Type: application/json
 
 {
   "grant_type": "refresh_token",
-  "refresh_token": <refresh_token>
+  "refresh_token": "SOME_REFRESH_TOKEN"
 }
 ```
 **Response:**
@@ -120,7 +120,7 @@ Content-Type: application/json
   "access_token": "SOME_NEW_JWT_ACCESS_TOKEN",
   "token_type": "bearer",
   "expires_in": 3600,
-  "refresh_token": "SOME_REFRESH_TOKEN"
+  "refresh_token": "SOME_NEW_REFRESH_TOKEN"
 }
 ```
 
