@@ -60,7 +60,7 @@ JWT_SECRET=my-super-secret-key
 
 ### 4️⃣ Run the Server
 ```sh
-npm run
+npm start
 ```
 
 The server should start at `http://localhost:8080`.
